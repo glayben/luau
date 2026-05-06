@@ -130,6 +130,7 @@ void luaE_freethread(lua_State* L, lua_State* L1, lua_Page* page)
     global_State* g = L->global;
     if (g->cb.userthread)
         g->cb.userthread(NULL, L1);
+    luaF_close(L1, L1->stack);
     freestack(L, L1);
     luaM_freegco(L, L1, sizeof(lua_State), L1->memcat, page);
 }
