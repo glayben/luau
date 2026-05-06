@@ -191,9 +191,9 @@ lua_State* lua_newstate(lua_Alloc f, void* ud)
     g->registryfree = 0;
     g->errorjmp = NULL;
     g->rngstate = 0;
-    g->ptrenckey[0] = 1;
-    g->ptrenckey[1] = 0;
-    g->ptrenckey[2] = 0;
+    g->ptrenckey[0] = 8;
+    g->ptrenckey[1] = 4;
+    g->ptrenckey[2] = 2;
     g->ptrenckey[3] = 0;
     g->strt.size = 0;
     g->strt.nuse = 0;
