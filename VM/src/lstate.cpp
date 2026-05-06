@@ -121,6 +121,8 @@ lua_State* luaE_newthread(lua_State* L)
     stack_init(L1, L);                  // init stack
     L1->gt = L->gt;                     // share table of globals
     L1->singlestep = L->singlestep;
+    if (L->global->cb.userthread)
+        L->global->cb.userthread(L, L1);
     LUAU_ASSERT(iswhite(obj2gco(L1)));
     return L1;
 }
